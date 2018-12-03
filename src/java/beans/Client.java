@@ -7,6 +7,16 @@ public class Client {
 	private String nom;
 	private String prenom;
 	private Date dtNaissance;
+
+    public Client(String login, String mdp, String nom, String prenom, Date dtNaissance)
+    {
+        this.login = login;
+        this.mdp = mdp;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.dtNaissance = dtNaissance;
+    }
+
 	/**
 	 * @return the dtNaissance
 	 */
