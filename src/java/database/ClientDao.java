@@ -28,26 +28,29 @@ finally{
 }
 }
 
-public Client getClient(String nom){
-    Connection con=DBConnexion.getInstance();
-    Client c=new Client();
+public Client getClient(String login){
+   
     PreparedStatement statement;
     String sql="SELECT * FROM `client` WHERE `login` = ?";
     try{
         
     statement=con.prepareStatement(sql);
-    statement.setString(1,"skander"); 
+    statement.setString(1,login); 
     ResultSet rs=statement.executeQuery();
-    while (rs.next()) {
-	String user= rs.getString("login");
-	String usermp = rs.getString("mdp");
-        c.setLogin(user);
-        c.setMdp(usermp);
-       }
+    Client c = null;
 
+            if (rs.next())
+            {
+                c = new Client(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5));
+
+            }
+            return c;
+
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        return null;
     }
-    catch(SQLException e){
-    }
-    return c ;
-}
 }
