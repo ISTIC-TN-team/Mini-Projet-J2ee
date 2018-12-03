@@ -1,12 +1,32 @@
 package beans;
 import java.sql.Date;
-
+/**
+ **Author Skanderbelgaied / Heni abdmouleh  / Marwen Bougossa 
+ ** Date :2018 - 2019
+ **/
 public class Client {
 	private String login;
 	private String mdp;
 	private String nom;
 	private String prenom;
 	private Date dtNaissance;
+
+    /**
+     * Constructeur 
+     */
+    public Client()
+    {
+        
+    }
+    public Client(String login, String mdp, String nom, String prenom, Date dtNaissance)
+    {
+        this.login = login;
+        this.mdp = mdp;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.dtNaissance = dtNaissance;
+    }
+
 	/**
 	 * @return the dtNaissance
 	 */

@@ -1,6 +1,9 @@
 package beans;
 import java.sql.Date;
-
+/**
+ **Author Skanderbelgaied / Heni abdmouleh  / Marwen Bougossa 
+ ** Date :2018 - 2019
+ **/
 public class Commande {
 	 private int idCommande ;
 	 private String login ;
