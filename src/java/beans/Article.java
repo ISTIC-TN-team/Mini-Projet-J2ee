@@ -1,6 +1,9 @@
 package beans;  
 import java.sql.Date;  
-
+/**
+ **Author Skanderbelgaied / Heni abdmouleh  / Marwen Bougossa 
+ ** Date :2018 - 2019
+ **/
 public class Article {
     private int idArticle ;
     private String libelle ;
@@ -12,6 +15,22 @@ public class Article {
 	/**
 	 * @return the idArticle
 	 */
+    public Article()
+    {
+    }
+
+
+    
+    
+    public Article(String libelle, String desc, double prix, String img, int qte)
+    {
+        this.libelle = libelle;
+        this.desc = desc;
+        this.prix = prix;
+        this.img = img;
+        this.qte = qte;
+    }
+
 	public int getIdArticle() {
 		return idArticle;
 	}

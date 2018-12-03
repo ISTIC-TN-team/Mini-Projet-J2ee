@@ -1,7 +1,10 @@
 package database;
 import beans.Client;
 import java.sql.*;
-
+/**
+ **Author Skanderbelgaied / Heni abdmouleh  / Marwen Bougossa 
+ ** Date :2018 - 2019
+ **/
 public class ClientDao {
 	
 Connection con=DBConnexion.getInstance();

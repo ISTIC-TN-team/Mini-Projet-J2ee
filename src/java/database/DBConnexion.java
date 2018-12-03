@@ -1,8 +1,10 @@
 package database;
 
 import java.sql.*;
-
-
+/**
+ **Author Skanderbelgaied / Heni abdmouleh  / Marwen Bougossa 
+ ** Date :2018 - 2019
+ **/
 public class DBConnexion {
 	
 	  private static Connection con=null;

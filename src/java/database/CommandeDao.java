@@ -1,7 +1,10 @@
 package database;
 import beans.Commande;
 import java.sql.*;
-
+/**
+ **Author Skanderbelgaied / Heni abdmouleh  / Marwen Bougossa 
+ ** Date :2018 - 2019
+ **/
 public class CommandeDao {
     Connection con = DBConnexion.getInstance();
      public boolean addCommande(Commande a)
