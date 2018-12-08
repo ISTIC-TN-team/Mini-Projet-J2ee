@@ -36,8 +36,8 @@
                         <ul>
                             <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
                             <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
-                            <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> My Cart</a></li>
-                            <li><a href="checkout.html"><i class="fa fa-user"></i> Checkout</a></li>
+                            <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i> My Cart</a></li>
+                            <li><a href="checkout.jsp"><i class="fa fa-user"></i> Checkout</a></li>
                             <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
                         </ul>
                     </div>
@@ -82,11 +82,11 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="shop.html">Shop page</a></li>
-                        <li><a href="single-product.html">Single product</a></li>
-                        <li><a href="cart.html">Cart</a></li>
-                        <li class="active"><a href="checkout.html">Checkout</a></li>
+                        <li><a href="index.jsp">Home</a></li>
+                        <li><a href="shop.jsp">Shop page</a></li>
+                        <li><a href="single-product.jsp">Single product</a></li>
+                        <li><a href="cart.jsp">Cart</a></li>
+                        <li class="active"><a href="checkout.jsp">Checkout</a></li>
                         <li><a href="#">Category</a></li>
                         <li><a href="#">Others</a></li>
                         <li><a href="#">Contact</a></li>
@@ -126,28 +126,28 @@
                         <h2 class="sidebar-title">Products</h2>
                         <div class="thubmnail-recent">
                             <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="single-product.html">Sony Smart TV - 2015</a></h2>
+                            <h2><a href="single-product.jsp">Sony Smart TV - 2015</a></h2>
                             <div class="product-sidebar-price">
                                 <ins>$700.00</ins> <del>$100.00</del>
                             </div>
                         </div>
                         <div class="thubmnail-recent">
                             <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="single-product.html">Sony Smart TV - 2015</a></h2>
+                            <h2><a href="single-product.jsp">Sony Smart TV - 2015</a></h2>
                             <div class="product-sidebar-price">
                                 <ins>$700.00</ins> <del>$100.00</del>
                             </div>
                         </div>
                         <div class="thubmnail-recent">
                             <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="single-product.html">Sony Smart TV - 2015</a></h2>
+                            <h2><a href="single-product.jsp">Sony Smart TV - 2015</a></h2>
                             <div class="product-sidebar-price">
                                 <ins>$700.00</ins> <del>$100.00</del>
                             </div>
                         </div>
                         <div class="thubmnail-recent">
                             <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="single-product.html">Sony Smart TV - 2015</a></h2>
+                            <h2><a href="single-product.jsp">Sony Smart TV - 2015</a></h2>
                             <div class="product-sidebar-price">
                                 <ins>$700.00</ins> <del>$100.00</del>
                             </div>
@@ -157,11 +157,11 @@
                     <div class="single-sidebar">
                         <h2 class="sidebar-title">Recent Posts</h2>
                         <ul>
-                            <li><a href="single-product.html">Sony Smart TV - 2015</a></li>
-                            <li><a href="single-product.html">Sony Smart TV - 2015</a></li>
-                            <li><a href="single-product.html">Sony Smart TV - 2015</a></li>
-                            <li><a href="single-product.html">Sony Smart TV - 2015</a></li>
-                            <li><a href="single-product.html">Sony Smart TV - 2015</a></li>
+                            <li><a href="single-product.jsp">Sony Smart TV - 2015</a></li>
+                            <li><a href="single-product.jsp">Sony Smart TV - 2015</a></li>
+                            <li><a href="single-product.jsp">Sony Smart TV - 2015</a></li>
+                            <li><a href="single-product.jsp">Sony Smart TV - 2015</a></li>
+                            <li><a href="single-product.jsp">Sony Smart TV - 2015</a></li>
                         </ul>
                     </div>
                 </div>
