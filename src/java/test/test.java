@@ -5,17 +5,21 @@
  */
 package test;
 
+import beans.Article;
 import beans.Client;
 import beans.Commande;
+import database.ArticleDao;
 import database.ClientDao;
 import database.CommandeDao;
+import java.sql.SQLException;
+import java.util.Vector;
 
 /**
  *
  * @author zone52
  */
 public class test {
-     public static void main(String[] args) 
+     public static void main(String[] args) throws SQLException 
     {
         ClientDao a = new ClientDao();
         Client s=a.getClient("Ali");
@@ -26,6 +30,15 @@ public class test {
         System.out.println("id   #"+c.getIdCommande()+" date    "+c.getDateCmd()+" prix    "+c.getPrixTotale()+" login    "
         +c.getLogin());
         System.out.println("#END client  #");
+        ArticleDao  n=new ArticleDao();
+        Vector<Article> v=n.getArticle();
+                System.out.println("#BEGIN vector article  #");
+ System.out.println(v.size());
+   for (int k=0;k<v.size();k++)
+          {
+          Article current = (Article) v.elementAt(k);
+          System.out.println(current.getLibelle());
+       }
     }
     
 }

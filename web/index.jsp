@@ -1,5 +1,16 @@
-<%@include file="includes/header.jsp" %>
 
+<%@include file="includes/header.jsp" %>
+   <div class="product-big-title-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="product-bit-title text-center">
+                                <h2>Home</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
     <div class="slider-area">
         	<!-- Slider -->
 			<div class="block-slider block-slider4">

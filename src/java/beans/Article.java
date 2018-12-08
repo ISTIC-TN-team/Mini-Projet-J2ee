@@ -22,7 +22,7 @@ public class Article {
 
     
     
-    public Article(String libelle, String desc, double prix, String img, int qte)
+    public Article(int idArticle ,String libelle, String desc, double prix, String img, int qte ,Date dateAjout)
     {
         this.libelle = libelle;
         this.desc = desc;
@@ -30,6 +30,8 @@ public class Article {
         this.img = img;
         this.qte = qte;
     }
+
+
 
 	public int getIdArticle() {
 		return idArticle;

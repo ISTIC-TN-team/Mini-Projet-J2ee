@@ -1,4 +1,8 @@
+<%@page import="beans.Article"%>
+<%@page import="java.util.Vector"%>
+<%@page import="database.ArticleDao"%>
 <%@include file="includes/header.jsp" %>
+
             <div class="product-big-title-area">
                 <div class="container">
                     <div class="row">
@@ -15,15 +19,27 @@
             <div class="single-product-area">
                 <div class="zigzag-bottom"></div>
                 <div class="container">
+                    
+                    
+                    <!-- affichage des prods  -->
+                    
                     <div class="row">
-                        <div class="col-md-3 col-sm-6">
+                        <% ArticleDao a=new ArticleDao();
+                           Vector<Article> v=a.getArticle();
+                        %>
+                        <%      for (int k=0;k<v.size();k++)
+          {
+          Article current = (Article) v.elementAt(k);%>
+          
+                        
+                           <div class="col-md-3 col-sm-6">
                             <div class="single-shop-product">
                                 <div class="product-upper">
-                                    <img src="img/product-2.jpg" alt="">
+                                    <img src="<%= current.getImg()%>" alt="">
                                 </div>
-                                <h2><a>Apple new mac book 2015 March :P</a></h2>
+                                <h2><a><%= current.getLibelle() %> </a></h2>
                                 <div class="product-carousel-price">
-                                    <ins>$899.00</ins> <del>$999.00</del>
+                                    <ins>$<%= current.getPrix()%></ins> <del>$999.00</del>
                                 </div>
 
                                 <div class="product-option-shop">
@@ -31,8 +47,10 @@
                                 </div>
                             </div>
                         </div>
+                                <% } %>
                     </div>
-
+                    
+                    
                     <div class="row">
                         <div class="col-md-12">
                             <div class="product-pagination text-center">
