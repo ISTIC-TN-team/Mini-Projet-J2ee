@@ -39,6 +39,10 @@ public class test {
           Article current = (Article) v.elementAt(k);
           System.out.println(current.getIdArticle());
        }
+     System.out.println("#BEGIN article()  #");
+      ArticleDao  k=new ArticleDao();
+      Article ar=k.getArticle(3);
+        System.out.println(ar.getLibelle());
     }
     
 }

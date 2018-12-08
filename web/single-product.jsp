@@ -1,5 +1,19 @@
 
+<%@page import="database.ArticleDao"%>
+<%@page import="beans.Article"%>
 <%@include file="includes/header.jsp" %>
+<% 
+    int id = -1;
+    
+    if(request.getParameter("id") != null)
+     id = (Integer.parseInt(request.getParameter("id")));
+    
+    Article article = (new ArticleDao()).getArticle(id);
+    
+    if(article == null)
+        article = new Article(0,"", "",0, "", 0,null);
+    
+%>
     <div class="product-big-title-area">
         <div class="container">
             <div class="row">
@@ -21,17 +35,13 @@
 
                 <div class="col-md-12">
                     <div class="product-content-right">
-                        <div class="product-breadcroumb">
-                            <a href="">Home</a>
-                            <a href="">Category Name</a>
-                            <a href="">Sony Smart TV - 2015</a>
-                        </div>
+                        
 
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="product-images">
                                     <div class="product-main-img">
-                                        <img src="img/product-2.jpg" alt="">
+                                        <img src="<%= article.getImg()%>" alt="">
                                     </div>
 
                                 </div>
@@ -39,32 +49,26 @@
 
                             <div class="col-sm-6">
                                 <div class="product-inner">
-                                    <h2 class="product-name">Sony Smart TV - 2015</h2>
+                                    <h2 class="product-name"><%= article.getLibelle() %></h2>
                                     <div class="product-inner-price">
-                                        <ins>$700.00</ins> <del>$100.00</del>
+                                        <ins>$<%= article.getPrix()%></ins> <del>$100.00</del>
                                     </div>
 
                                     <form action="" class="cart">
                                         <div class="quantity">
-                                            <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
+                                            <input type="number" size="4" class="input-text qty text" title="Qty" max="<%= article.getQte()%>" value="1" name="quantity" min="1" step="1">
                                         </div>
                                         <button class="add_to_cart_button" type="submit">Add to cart</button>
                                     </form>
 
-                                    <div class="product-inner-category">
-                                        <p>Category: <a href="">Summer</a>. Tags: <a href="">awesome</a>, <a href="">best</a>, <a href="">sale</a>, <a href="">shoes</a>. </p>
-                                    </div>
+                                  
 
                                     <div role="tabpanel">
-                                        <ul class="product-tab" role="tablist">
-                                            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Description</a></li>
-                                        </ul>
+                                    
                                         <div class="tab-content">
                                             <div role="tabpanel" class="tab-pane fade in active" id="home">
                                                 <h2>Product Description</h2>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique, diam in consequat iaculis, est purus iaculis mauris, imperdiet facilisis ante ligula at nulla. Quisque volutpat nulla risus, id maximus ex aliquet ut. Suspendisse potenti. Nulla varius lectus id turpis dignissim porta. Quisque magna arcu, blandit quis felis vehicula, feugiat gravida diam. Nullam nec turpis ligula. Aliquam quis blandit elit, ac sodales nisl. Aliquam eget dolor eget elit malesuada aliquet. In varius lorem lorem, semper bibendum lectus lobortis ac.</p>
-
-                                                <p>Mauris placerat vitae lorem gravida viverra. Mauris in fringilla ex. Nulla facilisi. Etiam scelerisque tincidunt quam facilisis lobortis. In malesuada pulvinar neque a consectetur. Nunc aliquam gravida purus, non malesuada sem accumsan in. Morbi vel sodales libero.</p>
+                                                <p><%= article.getDesc()%></p>
                                             </div>
                                             
                                         </div>
