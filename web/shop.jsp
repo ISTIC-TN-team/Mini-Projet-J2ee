@@ -30,9 +30,8 @@
                         <%      for (int k=0;k<v.size();k++)
           {
           Article current = (Article) v.elementAt(k);%>
-          
-                        
-                           <div class="col-md-3 col-sm-6">
+         
+                           <div class="col-md-4 col-sm-6 col-xs-6">
                             <div class="single-shop-product">
                                 <div class="product-upper">
                                     <img src="<%= current.getImg()%>" alt="">
@@ -43,7 +42,7 @@
                                 </div>
 
                                 <div class="product-option-shop">
-                                    <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow" href="/canvas/shop/?add-to-cart=70">Add to cart</a>
+                                    <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow" href="/shop/?id=<%= current.getIdArticle()%>">Add to cart</a>
                                 </div>
                             </div>
                         </div>
@@ -77,6 +76,7 @@
                         </div>
                     </div>
                 </div>
+                     
             </div>
 
 

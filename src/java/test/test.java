@@ -37,7 +37,7 @@ public class test {
    for (int k=0;k<v.size();k++)
           {
           Article current = (Article) v.elementAt(k);
-          System.out.println(current.getLibelle());
+          System.out.println(current.getIdArticle());
        }
     }
     

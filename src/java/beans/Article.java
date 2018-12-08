@@ -23,7 +23,7 @@ public class Article {
     
     
     public Article(int idArticle ,String libelle, String desc, double prix, String img, int qte ,Date dateAjout)
-    {
+    {   this.idArticle=idArticle;
         this.libelle = libelle;
         this.desc = desc;
         this.prix = prix;
