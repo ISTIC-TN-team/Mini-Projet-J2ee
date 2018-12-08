@@ -31,24 +31,6 @@ public class ConnexionServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response){}
-    @Override
-     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
-     String login =  request.getParameter("login");
-     String password = request.getParameter("password");
-     ClientDao a = new ClientDao();
-     Client s = a.getClient(login);
-     String er = "username et mot de passe incorrecte";
-     if(s == NULL ){
-     response.sendRedirect("login.jsp?msg="+er);
-     }
-     else{
-     request.getSession().setAttribute("client",s);
-     response.sendRedirect("index.jsp");
-     }
-    }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -61,7 +43,7 @@ public class ConnexionServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+       
     }
 
     /**
@@ -75,7 +57,18 @@ public class ConnexionServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+       String login =  request.getParameter("login");
+     String password = request.getParameter("password");
+     ClientDao a = new ClientDao();
+     Client s = a.getClient(login);
+     String er = "username et mot de passe incorrecte";
+     if(s == NULL ){
+     response.sendRedirect("login.jsp?msg="+er);
+     }
+     else{
+     request.getSession().setAttribute("client",s);
+     response.sendRedirect("index.jsp");
+     }
     }
 
     /**
