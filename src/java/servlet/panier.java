@@ -45,39 +45,45 @@ public class panier extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
-       if (session.getAttribute("client") == null){
-           response.sendRedirect("login.jsp");
-       }
-       else
-       {
-          if(session.getAttribute("panier") == null)
-          {
-           Panier p = new Panier();
-           String op = request.getParameter("op");
-           if(op=="+")
-            {
-                ArticleDao a = new ArticleDao();
-                int  id=Integer.parseInt(request.getParameter("id"));
-                Article ar=a.getArticle(id); 
-                int qte = Integer.parseInt(request.getParameter("qte"));
-                    if(ar.getQte() < qte){
-                      System.out.print("alert('la quantite nest pas disponible')");
-                     }else{
-                        p.addArticle(ar);
-                session.setAttribute("panier",p); }
-            }
-            else if(op==("-"))
-            {
-              ArticleDao d = new ArticleDao();
-              Panier a = (Panier) session.getAttribute("panier");
-              int  id=Integer.parseInt(request.getParameter("id"));
-              Article ar=d.getArticle(id);
-              a.removeArticle(ar);
-              session.setAttribute("panier",a);
-            }
-          }
-       }
+      {
+        if(request.getSession().getAttribute("panier") == null)
+            request.getSession().setAttribute("panier", new Panier());
+        
+        Panier p = (Panier)request.getSession().getAttribute("panier");
+            
+        ArticleDao dao = new ArticleDao();
+        int id = Integer.parseInt(request.getParameter("id"));
+        Article a = dao.getArticle(id);
+        
+        if(request.getParameter("op") == null || a == null)
+        {
+            response.sendRedirect(request.getParameter("sender") + "?id="+id+"&failed");
+            return ;
+        }
+        
+        
+        if(request.getParameter("op").equals("add"))
+        {
+            p.addArticle(a);
+            request.getSession().setAttribute("panier",p);
+            response.sendRedirect(request.getParameter("sender") + "?id="+id+"&succes");
+        }
+        
+        if(request.getParameter("op").equals("sous"))
+        {
+            p.sousArticle(a);
+            request.getSession().setAttribute("panier",p);
+            response.sendRedirect(request.getParameter("sender") + "?id="+id+"&succes");
+        }
+        
+        if(request.getParameter("op").equals("rem"))
+        {
+            p.removeArticle(a);
+            request.getSession().setAttribute("panier",p);
+            response.sendRedirect(request.getParameter("sender") + "?id="+id+"&succes");
+        }
+    }
+
     }
     /**
      * Handles the HTTP <code>POST</code> method.

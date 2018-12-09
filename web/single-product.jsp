@@ -55,12 +55,12 @@
                                         <ins>$<%= article.getPrix()%></ins> <del>$100.00</del>
                                     </div>
 
-                                    <form action="" class="cart">
+                                    <div class="cart">
                                         <div class="quantity">
                                             <input type="number" size="4" class="input-text qty text" title="Qty" max="<%= article.getQte()%>" value="1" name="quantity" min="1" step="1">
                                         </div>
-                                        <button class="add_to_cart_button" type="submit">Add to cart</button>
-                                    </form>
+                                        <a href="panier?op=add&sender=cart.jsp&id=<%= article.getIdArticle()%>" class="add_to_cart_button" type="submit">Add to cart</a>
+                                   </div
 
                                   
 

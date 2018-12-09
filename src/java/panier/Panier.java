@@ -75,6 +75,7 @@ public class Panier
     {
         return lignesPanier;
     }
+    
 
     public void removeArticle(Article art)
     {
