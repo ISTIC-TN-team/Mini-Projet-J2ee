@@ -8,6 +8,10 @@
         <servlet-name>registrationSecrvlet</servlet-name>
         <servlet-class>servlet.RegistrationServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>panier</servlet-name>
+        <servlet-class>servlet.panier</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnexionServlet</servlet-name>
         <url-pattern>/ConnexionServlet</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>registrationSecrvlet</servlet-name>
         <url-pattern>/registrationSecrvlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>panier</servlet-name>
+        <url-pattern>/panier</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
