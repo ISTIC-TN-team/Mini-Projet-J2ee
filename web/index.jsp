@@ -1,4 +1,7 @@
 
+<%@page import="java.util.Vector"%>
+<%@page import="beans.Article"%>
+<%@page import="database.ArticleDao"%>
 <%@include file="includes/header.jsp" %>
    <div class="product-big-title-area">
                 <div class="container">
@@ -97,95 +100,28 @@
                     <div class="latest-product">
                         <h2 class="section-title">Latest Products</h2>
                         <div class="product-carousel">
+                                      <% ArticleDao a=new ArticleDao();
+                           Vector<Article> v=a.getArticle();
+                        %>
+                        <%      for (int k=0;k<v.size();k++)
+          {
+          Article current = (Article) v.elementAt(k);%>
                             <div class="single-product">
                                 <div class="product-f-image">
-                                    <img src="img/product-1.jpg" alt="">
-                                    <div class="product-hover">
-                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                        <a href="single-product.jsp" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                        <img src="<%= current.getImg()%>" alt="">
+                                        <div class="product-hover">
+                                            <a href="single-product.jsp?id=<%= current.getIdArticle()%>" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                            <a href="single-product.jsp?id=<%= current.getIdArticle()%>" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                        </div>
+                                    </div>
+
+                                   <h2><a href="single-product.jsp?id=<%= current.getIdArticle()%>"><%= current.getLibelle() %></a></h2>
+
+                                    <div class="product-carousel-price">
+                                        <ins>$<%= current.getPrix()%></ins> <del>$100.00</del>
                                     </div>
                                 </div>
-
-                                <h2><a href="single-product.jsp">Samsung Galaxy s5- 2015</a></h2>
-
-                                <div class="product-carousel-price">
-                                    <ins>700.00 TND</ins> <del>100.00 TND</del>
-                                </div>
-                            </div>
-                            <div class="single-product">
-                                <div class="product-f-image">
-                                    <img src="img/product-2.jpg" alt="">
-                                    <div class="product-hover">
-                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                        <a href="single-product.jsp" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                    </div>
-                                </div>
-
-                                <h2>Nokia Lumia 1320</h2>
-                                <div class="product-carousel-price">
-                                    <ins>899.00 TND</ins> <del>999.00 TND</del>
-                                </div>
-                            </div>
-                            <div class="single-product">
-                                <div class="product-f-image">
-                                    <img src="img/product-3.jpg" alt="">
-                                    <div class="product-hover">
-                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                        <a href="single-product.jsp" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                    </div>
-                                </div>
-
-                                <h2>LG Leon 2015</h2>
-
-                                <div class="product-carousel-price">
-                                    <ins>400.00 TND</ins> <del>425.00 TND</del>
-                                </div>
-                            </div>
-                            <div class="single-product">
-                                <div class="product-f-image">
-                                    <img src="img/product-4.jpg" alt="">
-                                    <div class="product-hover">
-                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                        <a href="single-product.jsp" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                    </div>
-                                </div>
-
-                                <h2><a href="single-product.jsp">Sony microsoft</a></h2>
-
-                                <div class="product-carousel-price">
-                                    <ins>200.00 TND</ins> <del>225.00 TND</del>
-                                </div>
-                            </div>
-                            <div class="single-product">
-                                <div class="product-f-image">
-                                    <img src="img/product-5.jpg" alt="">
-                                    <div class="product-hover">
-                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                        <a href="single-product.jsp" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                    </div>
-                                </div>
-
-                                <h2>iPhone 6</h2>
-
-                                <div class="product-carousel-price">
-                                    <ins>1200.00 TND</ins> <del>1355.00 TND</del>
-                                </div>
-                            </div>
-                            <div class="single-product">
-                                <div class="product-f-image">
-                                    <img src="img/product-6.jpg" alt="">
-                                    <div class="product-hover">
-                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                        <a href="single-product.jsp" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                    </div>
-                                </div>
-
-                                <h2><a href="single-product.jsp">Samsung gallaxy note 4</a></h2>
-
-                                <div class="product-carousel-price">
-                                    <ins>400.00 TND</ins>
-                                </div>
-                            </div>
+                                       <% }%>
                         </div>
                     </div>
                 </div>
