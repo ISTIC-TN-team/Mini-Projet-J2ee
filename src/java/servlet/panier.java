@@ -47,7 +47,7 @@ public class panier extends HttpServlet {
             throws ServletException, IOException {
       {
         if(request.getSession().getAttribute("panier") == null)
-            request.getSession().setAttribute("panier", new Panier());
+        { request.getSession().setAttribute("panier", new Panier());}
         
         Panier p = (Panier)request.getSession().getAttribute("panier");
             

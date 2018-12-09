@@ -41,7 +41,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-<%  Panier p = (Panier)request.getSession().getAttribute("panier");
+<%if(session.getAttribute("client") != null ){ Panier p = (Panier)request.getSession().getAttribute("panier");
      ArrayList<LignePanier> prod=p.getLignesPanier();
      double total=0;
      for(int i = 0 ; i < prod.size(); i++){
@@ -82,13 +82,13 @@
                                             <td class="actions" colspan="6">
                                                 <div class="coupon">
                                                     <label for="coupon_code">TOTAL :</label>
-                                                               <%= total %>
+                                                               <%= total %> 
                                                 </div>
-                                                <input type="submit" value="Update Cart" name="update_cart" class="button">
-                                                <a href="cart.jsp?total=<% %> value="Checkout" name="proceed" class="checkout-button button alt wc-forward"><a>
+                                                <a href="checkout.jsp" class=" btn btn-info">Buy</a>
+                                                <a href="cart.jsp?total=<% %>" value="Checkout" name="proceed" class="checkout-button button alt wc-forward"><a>
                                             </td>
                                         </tr>
-                                    </tbody>
+                                    </tbody><% }else{  response.sendRedirect("login.jsp");  }   %>
                                 </table>
                             </form>
 
