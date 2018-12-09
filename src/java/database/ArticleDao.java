@@ -85,7 +85,38 @@ public class ArticleDao {
 
         return null;
     }
+public Vector<Article> getArticles(int lim)
+    {
+        String req = "SELECT * FROM `article` LIMIT "+lim;
 
+        Vector<Article> vect = null;
+
+        try
+        {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            while (rs.next())
+            {   
+
+                if (vect == null)
+                {   
+                    vect = new Vector<>();
+                }
+
+                Article e = new Article(rs.getInt("idarticle") ,rs.getString("libelle"),rs.getString("desc"),rs.getDouble("prix"),
+                        rs.getString("img"),rs.getInt("qte"),rs.getDate("dateajout"));
+
+                vect.add(e);
+            }
+            return vect;
+        } catch (Exception e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 }
 
 
