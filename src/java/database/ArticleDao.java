@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.sql.*;  
 import java.util.Vector;
 /**
- **Author Skanderbelgaied / Heni abdmouleh  / Marwen Bougossa 
- ** Date :2018 - 2019
+ **@Author Skanderbelgaied / Heni abdmouleh  / Marwen Bougossa 
+ ** @Date :2018 - 2019
  **/
 public class ArticleDao {
         Connection con=DBConnexion.getInstance();

@@ -1,21 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package servlet;
 
+import beans.Client;
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
+import database.ClientDao;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Date;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 /**
- *
- * @author clickinformatique
- */
-public class registrationSecrvlet extends HttpServlet {
+ **@Author Skanderbelgaied / Heni abdmouleh  / Marwen Bougossa 
+ ** @Date :2018 - 2019
+ **/
+public class RegistrationServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -54,7 +54,16 @@ public class registrationSecrvlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
+        String login = request.getParameter("login");
+        String password = request.getParameter("password");
+        String name = request.getParameter("name");
+        String lastname = request.getParameter("lastname");
+   
+         
+        
+       ClientDao s = new ClientDao();
+       Client cl = new Client(login,password,name,lastname,null);
+       s.addClient(cl);
     }
 
     /**

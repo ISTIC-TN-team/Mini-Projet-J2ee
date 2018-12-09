@@ -13,14 +13,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 /**
- *
- * @author clickinformatique
- */
+ **@Author Skanderbelgaied / Heni abdmouleh  / Marwen Bougossa 
+ ** @Date :2018 - 2019
+ **/
 public class ConnexionServlet extends HttpServlet {
 
-    private Client NULL;
+
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -62,7 +61,7 @@ public class ConnexionServlet extends HttpServlet {
      ClientDao a = new ClientDao();
      Client s = a.getClient(login);
      String er = "username et mot de passe incorrecte";
-     if(s == NULL ){
+     if(s == null ){
      response.sendRedirect("login.jsp?msg="+er);
      }
      else{
