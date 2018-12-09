@@ -12,7 +12,7 @@ Connection con=DBConnexion.getInstance();
 @SuppressWarnings("finally")
 public boolean addClient(Client a) {
 	 int resultat=-1;
-	String req="";
+	String req="INSERT INTO `client`(`login`, `mdp`, `nom`, `prenom`, `dtnaissance`) VALUES ('"+a.getLogin()+"','"+a.getMdp()+"','"+a.getNom()+"','"+a.getPrenom()+"','"+a.getDtNaissance()+"');";
 try {
 	Statement st = con.createStatement();
 
