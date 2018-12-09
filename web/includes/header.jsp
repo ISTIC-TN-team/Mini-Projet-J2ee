@@ -40,7 +40,7 @@
                            <%  if(session.getAttribute("client") != null ){  %>   <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i> My Cart</a></li>
                             <li><a href="checkout.jsp"><i class="fa fa-user"></i> Checkout</a></li  <% }else{ %>
                             <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
-                                <li><a href="#"><i class="material-icons"></i>Inscription</a></li>
+                                <li><a href="#"><i class="fa fa-plus-circle"></i>Inscription</a></li>
                             <%} %>
                         </ul>
                     </div>
