@@ -49,30 +49,35 @@ public class panier extends HttpServlet {
        if (session.getAttribute("client") == null){
            response.sendRedirect("login.jsp");
        }
-       else{
-           if(session.getAttribute("panier") == null){
+       else
+       {
+          if(session.getAttribute("panier") == null)
+          {
            Panier p = new Panier();
            String op = request.getParameter("op");
-           if(op=="+"){
-
-       ArticleDao a = new ArticleDao();
-       int  id=Integer.parseInt(request.getParameter("id"));
-       Article ar=a.getArticle(id);
-       
-      int qte = Integer.parseInt(request.getParameter("qte"));
-      if(ar.getQte() < qte){
-      System.out.print("alert('la quantite nest pas disponible')");}
-      else
-       p.addArticle(ar);
-      session.setAttribute("panier",p); 
+           if(op=="+")
+            {
+                ArticleDao a = new ArticleDao();
+                int  id=Integer.parseInt(request.getParameter("id"));
+                Article ar=a.getArticle(id); 
+                int qte = Integer.parseInt(request.getParameter("qte"));
+                    if(ar.getQte() < qte){
+                      System.out.print("alert('la quantite nest pas disponible')");
+                     }else{
+                        p.addArticle(ar);
+                session.setAttribute("panier",p); }
+            }
+            else if(op==("-"))
+            {
+              ArticleDao d = new ArticleDao();
+              Panier a = (Panier) session.getAttribute("panier");
+              int  id=Integer.parseInt(request.getParameter("id"));
+              Article ar=d.getArticle(id);
+              a.removeArticle(ar);
+              session.setAttribute("panier",a);
+            }
+          }
        }
-           else if(op==("-")){
-               
-           }else{
-               System.out.println("ERROR");
-           }
-       }
-    }
     }
     /**
      * Handles the HTTP <code>POST</code> method.
