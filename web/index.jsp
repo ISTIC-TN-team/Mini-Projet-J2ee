@@ -100,8 +100,8 @@
                     <div class="latest-product">
                         <h2 class="section-title">Latest Products</h2>
                         <div class="product-carousel">
-                                      <% ArticleDao a=new ArticleDao();
-                           Vector<Article> v=a.getArticle();
+                                      <% ArticleDao p=new ArticleDao();
+                           Vector<Article> v=p.getArticle();
                         %>
                         <%      for (int k=0;k<v.size();k++)
           {

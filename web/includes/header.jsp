@@ -1,3 +1,4 @@
+<%@page import="beans.Client"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,18 +28,20 @@
  <!-------------------------------------->
   </head>
   <body>
-
+  
     <div class="header-area">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
                     <div class="user-menu">
                         <ul>
-                            <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
-                            <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
-                            <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i> My Cart</a></li>
-                            <li><a href="checkout.jsp"><i class="fa fa-user"></i> Checkout</a></li>
+                           <!-- <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
+                            <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>-->
+                           <%  if(session.getAttribute("client") != null ){  %>   <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i> My Cart</a></li>
+                            <li><a href="checkout.jsp"><i class="fa fa-user"></i> Checkout</a></li  <% }else{ %>
                             <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
+                                <li><a href="#"><i class="material-icons"></i>Inscription</a></li>
+                            <%} %>
                         </ul>
                     </div>
                 </div>
