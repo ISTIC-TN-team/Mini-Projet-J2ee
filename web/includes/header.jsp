@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TechShop</title>
-
+        <script src="js/lib/angular.min.js"></script>
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
@@ -53,8 +53,8 @@
                 <div class="col-md-4">
                     <div class="user-menu">
                         <ul>
-                            <li> <a> <%= c.getNom() %> </a></li>
-                            <li> <a> <%= c.getPrenom()%> </a></li>
+                            <li> <a><p class="text-light bg-dark"> <%= c.getNom() %></p></a></li>
+                            <li> <a><p class="text-light bg-dark">  <%= c.getPrenom()%></p> </a></li>
                         </ul>
                         
                     </div>

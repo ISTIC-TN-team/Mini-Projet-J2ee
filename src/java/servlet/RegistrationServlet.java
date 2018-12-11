@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import panier.Panier;
 /**
  **@Author Skanderbelgaied / Heni abdmouleh  / Marwen Bougossa 
  ** @Date :2018 - 2019
@@ -54,16 +55,26 @@ public class RegistrationServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String login = request.getParameter("email");
-        String password = request.getParameter("password");
-        String name = request.getParameter("name");
-        String lastname = request.getParameter("lastname");
+        String login =(String)request.getParameter("email");
+        String password =(String)request.getParameter("password");
+        String name =(String)request.getParameter("name");
+        String lastname =(String)request.getParameter("lastname");
    
          
-        
+       
        ClientDao s = new ClientDao();
        Client cl = new Client(login,password,name,lastname,null);
-       s.addClient(cl);
+       boolean test= s.addClient(cl);
+       String er = "your already registered or an error " ;
+
+       if(test==false){
+     response.sendRedirect("signup.jsp?msg="+er);
+     }
+     else{
+     request.getSession().setAttribute("client",cl);
+     request.getSession().setAttribute("panier", new Panier());
+     response.sendRedirect("index.jsp");
+     }
     }
 
     /**

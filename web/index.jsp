@@ -1,3 +1,4 @@
+<%@page import="java.util.Random"%>
 <!--**
  **@Author Skanderbelgaied / Heni abdmouleh  / Marwen Bougossa 
  ** @Date :2018 - 2019
@@ -21,33 +22,24 @@
         	<!-- Slider -->
 			<div class="block-slider block-slider4">
 				<ul class="" id="bxslider-home4">
+				
+				  <% ArticleDao s=new ArticleDao();
+                           Vector<Article> m=s.getArticles(5);
+                        %>
+                        <%      for (int k=0;k<m.size();k++)
+          {Article promo = (Article) m.elementAt(k);
+          %>	<li><img src="-<%= promo.getImg()%>" alt="Slide">
+						<div class="caption-group">
+                                                    <h2 class="caption title">get one <%= promo.getLibelle()  %><br> <span class="primary"><% Random r = new Random();
+int low = 10;
+int high = 100;
+int result = r.nextInt(high-low) + low; %> <strong>off</strong></span>
+							
+							<h5 class="caption subtitle"><%= promo.getQte()%> left</h5>
+							<a class="caption button-radius" href="single-product.jsp?id=<%= promo.getIdArticle()%>"><span class="icon"></span>Shop now</a>
+						</div><% } %>
+					</li>
 					<li>
-						<img src="img/h4-slide.png" alt="Slide">
-						<div class="caption-group">
-							
-							
-						</div>
-					</li>
-					<li><img src="img/h4-slide2.png" alt="Slide">
-						<div class="caption-group">
-                                                    <h2 class="caption title">get one i Phone 6 plus<br> <span class="primary">50% <strong>off</strong></span>
-							
-							<h5 class="caption subtitle">school supplies & backpacks</h5>
-							<a class="caption button-radius" href="#"><span class="icon"></span>Shop now</a>
-						</div>
-					</li>
-					<li><img src="img/h4-slide3.png" alt="Slide">
-						<div class="caption-group">
-							
-							
-						</div>
-					</li>
-					<li><img src="img/h4-slide4.png" alt="Slide">
-						<div class="caption-group">
-						  
-							
-						</div>
-					</li>
 				</ul>
 			</div>
 			<!-- ./Slider -->
@@ -56,7 +48,8 @@
     <div class="promo-area">
         <div class="zigzag-bottom"></div>
         <div class="container">
-            <div class="row">
+          
+            <div class="row">   
                 <div class="col-md-3 col-sm-6">
                     <div class="single-promo promo1">
                         <i class="fa fa-refresh"></i>

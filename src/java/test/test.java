@@ -22,7 +22,10 @@ public class test {
      public static void main(String[] args) throws SQLException 
     {
         ClientDao a = new ClientDao();
-        Client s=a.getClient("Ali");
+        Client s=new Client("skon318@gmail.com","aa ","skander ","belgaied",null);
+        boolean t=a.addClient(s);
+                if (!t){System.out.println("error");}
+                        /*
         System.out.println("login   #"+s.getLogin()+" mp    "+s.getMdp());
         System.out.println("#END client  #");
         CommandeDao b = new CommandeDao();
@@ -42,7 +45,7 @@ public class test {
      System.out.println("#BEGIN article()  #");
       ArticleDao  k=new ArticleDao();
       Article ar=k.getArticle(3);
-        System.out.println(ar.getLibelle());
+        System.out.println(ar.getLibelle());*/
     }
     
 }

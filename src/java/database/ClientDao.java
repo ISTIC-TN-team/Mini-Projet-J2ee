@@ -12,14 +12,17 @@ Connection con=DBConnexion.getInstance();
 @SuppressWarnings("finally")
 public boolean addClient(Client a) {
 	 int resultat=-1;
-	String req="INSERT INTO `client`(`login`, `mdp`, `nom`, `prenom`, `dtnaissance`) VALUES ('"+a.getLogin()+"','"+a.getMdp()+"','"+a.getNom()+"','"+a.getPrenom()+"','"+a.getDtNaissance()+"');";
+          PreparedStatement statement;
+	String req="INSERT INTO `client` (`login`, `mdp`, `nom`, `prenom`) VALUES ('"
+                +a.getLogin()+"','"+a.getMdp()+"','"+a.getPrenom()+"','"+a.getNom()+"');";
 try {
-	Statement st = con.createStatement();
-
-   resultat = st.executeUpdate(req);
+	 statement=con.prepareStatement(req);
+      
+   resultat = statement.executeUpdate(req);
 }catch(Exception e)
 {
-	
+             Throwable cause = e.getCause();
+             System.out.println(e.fillInStackTrace());
 }
 finally{
 	if (resultat>0)
