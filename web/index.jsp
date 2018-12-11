@@ -28,7 +28,7 @@
                         %>
                         <%      for (int k=0;k<m.size();k++)
           {Article promo = (Article) m.elementAt(k);
-          %>	<li><img src="-<%= promo.getImg()%>" alt="Slide">
+          %>	<li><img src="img/<%= promo.getImg()%>" alt="Slide">
 						<div class="caption-group">
                                                     <h2 class="caption title">get one <%= promo.getLibelle()  %><br> <span class="primary"><% Random r = new Random();
 int low = 10;
