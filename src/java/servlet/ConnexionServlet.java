@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package servlet;
 
 import beans.Client;
@@ -13,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import panier.Panier;
 /**
  **@Author Skanderbelgaied / Heni abdmouleh  / Marwen Bougossa 
  ** @Date :2018 - 2019
@@ -66,6 +62,7 @@ public class ConnexionServlet extends HttpServlet {
      }
      else{
      request.getSession().setAttribute("client",s);
+     request.getSession().setAttribute("panier", new Panier());
      response.sendRedirect("index.jsp");
      }
     }

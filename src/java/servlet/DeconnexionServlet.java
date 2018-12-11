@@ -14,9 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- *
- * @author zone52
- */
+ **@Author Skanderbelgaied / Heni abdmouleh  / Marwen Bougossa 
+ ** @Date :2018 - 2019
+ **/
 public class DeconnexionServlet extends HttpServlet {
 
     /**
@@ -32,8 +32,7 @@ public class DeconnexionServlet extends HttpServlet {
             throws ServletException, IOException {
          HttpSession session = request.getSession();
         session.invalidate();
-
-        /* Affichage de la page de connexion */
+        /* Affichage de la page d'acceuil */
         response.sendRedirect("index.jsp");
     }
 

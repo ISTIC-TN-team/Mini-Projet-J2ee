@@ -15,11 +15,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import panier.Panier;
-
 /**
- *
- * @author clickinformatique
- */
+ **@Author Skanderbelgaied / Heni abdmouleh  / Marwen Bougossa 
+ ** @Date :2018 - 2019
+ **/
 public class panier extends HttpServlet {
 
     /**

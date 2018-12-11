@@ -1,3 +1,7 @@
+<!--**
+ **@Author Skanderbelgaied / Heni abdmouleh  / Marwen Bougossa 
+ ** @Date :2018 - 2019
+ **/ -->
 <%@page import="beans.Article"%>
 <%@page import="java.util.Vector"%>
 <%@page import="database.ArticleDao"%>

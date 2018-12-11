@@ -1,4 +1,7 @@
-
+<!--**
+ **@Author Skanderbelgaied / Heni abdmouleh  / Marwen Bougossa 
+ ** @Date :2018 - 2019
+ **/ -->
     <%@page import="java.util.ArrayList"%>
 <%@page import="panier.LignePanier"%>
 <%@page import="panier.Panier"%>
@@ -32,18 +35,18 @@
                                     <thead>
                                         
                                         <tr>
-                                            <th class="product-remove">&nbsp;</th>
-                                            <th class="product-thumbnail">&nbsp;</th>
-                                            <th class="product-name">Product</th>
+                                       
+                                            <th class="product-name" colspan="3">Product</th>
                                             <th class="product-price">Price</th>
                                             <th class="product-quantity">Quantity</th>
                                             <th class="product-subtotal">Total</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-<%if(session.getAttribute("client") != null ){ Panier p = (Panier)request.getSession().getAttribute("panier");
+<% if(session.getAttribute("client") != null ){ Panier p = (Panier)request.getSession().getAttribute("panier");
      ArrayList<LignePanier> prod=p.getLignesPanier();
-     double total=0;
+     if(prod.size()>0)
+     {     double total=0;
      for(int i = 0 ; i < prod.size(); i++){
          total+=prod.get(i).getArticle().getPrix()*prod.get(i).getQuantite();
 %>
@@ -88,7 +91,42 @@
                                                 <a href="cart.jsp?total=<% %>" value="Checkout" name="proceed" class="checkout-button button alt wc-forward"><a>
                                             </td>
                                         </tr>
-                                    </tbody><% }else{  response.sendRedirect("login.jsp");  }   %>
+                                    </tbody><% }else{ %>
+                                    <tr class="cart_item">
+                                            <td class="product-remove">
+                                            </td>
+
+                                            <td class="product-thumbnail">
+                                            </td>
+
+                                            <td class="product-name">
+                                        
+                                            </td>
+
+                                            <td class="product-price">
+                                            </td>
+
+                                            <td class="product-quantity">
+                                              
+                                            </td>
+
+                                            <td class="product-subtotal">
+                                                
+                                            </td>
+                                        <tr>
+                                             <tr>
+                                            <td class="actions" colspan="6">
+                                                <div class="coupon">
+                                                    <label for="coupon_code">TOTAL :</label>
+                                                               $0
+                                                </div>
+                                                <a href="checkout.jsp" class=" btn btn-info" disabled="disabled"
+                                                   accesskey="">Buy</a>
+                                                <a href="cart.jsp?total=<% %>" value="Checkout" name="proceed" class="checkout-button button alt wc-forward"><a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <% }}else{  response.sendRedirect("login.jsp");  }   %>
                                 </table>
                             </form>
 
