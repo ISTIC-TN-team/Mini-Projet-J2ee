@@ -24,16 +24,17 @@
 				<ul class="" id="bxslider-home4">
 				
 				  <% ArticleDao s=new ArticleDao();
-                           Vector<Article> m=s.getArticles(5);
+                                  Random r = new Random();
+                           Vector<Article> m=s.getArticles(r.nextInt(8-2)+2);
                         %>
                         <%      for (int k=0;k<m.size();k++)
           {Article promo = (Article) m.elementAt(k);
           %>	<li><img src="img/<%= promo.getImg()%>" alt="Slide">
 						<div class="caption-group">
-                                                    <h2 class="caption title">get one <%= promo.getLibelle()  %><br> <span class="primary"><% Random r = new Random();
+                                                    <h2 class="caption title">get one <%= promo.getLibelle()  %><br> <span class="primary"><% 
 int low = 10;
 int high = 100;
-int result = r.nextInt(high-low) + low; %> <strong>off</strong></span>
+int result = r.nextInt(high-low) + low; %><%= result %> %<strong>off</strong></span>
 							
 							<h5 class="caption subtitle"><%= promo.getQte()%> left</h5>
 							<a class="caption button-radius" href="single-product.jsp?id=<%= promo.getIdArticle()%>"><span class="icon"></span>Shop now</a>
