@@ -57,7 +57,7 @@ public class ConnexionServlet extends HttpServlet {
      ClientDao a = new ClientDao();
      Client s = a.getClient(login);
      String er = "username or password incorrect";
-     if(s == null ){
+     if(s == null || !s.getMdp().equals(password) ){
      response.sendRedirect("login.jsp?msg="+er);
      }
      else{
